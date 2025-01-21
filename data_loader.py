@@ -38,5 +38,9 @@ def load_data():
     
     # Extract the list of course names for use in the recommendation system
     course_names = data['Course Name'].tolist()
+
+    # Remove non-ASCII characters
+    course_names = [course.encode('ascii', 'ignore').decode('ascii') for course in course_names]
+
     
     return data, similarity_matrix, course_names
