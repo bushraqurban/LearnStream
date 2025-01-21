@@ -1,0 +1,225 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    line-height: 1.6;
+    position: relative; /* Ensure that the background is positioned properly */
+    height: 100vh; /* Ensure the body takes the full height of the viewport */
+    background-image: url('/static/images/background_image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* Add an overlay to darken the background */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    z-index: -1;
+}
+
+/* Navbar styles */
+nav {
+    background-color: #2354d1;
+    padding: 25px 0;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+nav h1 {
+    color: #F9E900;
+    font-size: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Form and container styles */
+.container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Dropdown styling */
+form select {
+    padding: 12px 16px;
+    width: 70%;
+    font-size: 16px;
+    border: 2px solid #232ED1;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+form select:hover {
+    border-color: #F9E900;
+    background-color: #f4f4f4;
+}
+
+form select:focus {
+    outline: none;
+    border-color: #F9E900;
+    background-color: #f4f4f4;
+}
+
+/* Style for the label */
+form label {
+    display: block;
+    font-size: 18px;
+    color: #F9E900;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Button styling */
+form button {
+    padding: 12px 25px;
+    background-color: #F9E900;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e0c200;
+}
+
+/* Recommendations list */
+.recommendations-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    justify-content: flex-start;
+}
+
+.recommendations-list li {
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.course-item {
+    width: 350px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-info h3 {
+    font-size: 18px;
+    color: #232ED1;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.course-info p {
+    color: #555;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.course-item a {
+    text-decoration: none;
+    color: #232ED1;
+    font-weight: bold;
+}
+
+.course-item a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    nav .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    form input {
+        width: 80%;
+    }
+
+    .recommendations-list li {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .course-item {
+        width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendations-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .course-item {
+        width: 100%;
+    }
+}
