@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="container">
-            <h1>Course Recommender</h1>
+            <h1>LearnStream</h1>
             <ul>
                 <li><a href="/">Home</a></li>
             </ul>
@@ -24,10 +24,10 @@
                 {% for recommendation in recommendations %}
                     <div class="course-item">
                         <div class="course-info">
-                            <h3>{{ recommendation.course_name }}</h3>
-                            <p><strong>Rating:</strong> {{ recommendation.rating }}</p>
-                            <p><strong>Offered by:</strong> {{ recommendation.institution }}</p>
-                            <p><strong>Description:</strong> {{ recommendation.description }}</p>
+                            <h3><a href= "{{ recommendation.course_url }}" > {{ recommendation.course_name }} </a></h3>
+                            <p><strong>Rating:</strong> {{ recommendation.rating }} </p>
+                            <p><strong>Offered by:</strong> {{ recommendation.institution }} </p>
+                            <p><strong>Difficluty level:</strong> {{recommendation.difficulty_level}} </p>
                         </div>
                     </div>
                 {% endfor %}
