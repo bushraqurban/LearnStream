@@ -51,18 +51,18 @@ def normalize_rating(rating_str):
     except ValueError:
         return 0  # Return 0 if the rating is invalid
 
-def get_similarity(course_name, data, similarity_matrix):
-    """
-    Find the best matching course from the dataset based on the course name.
+# def get_similarity(course_name, data, similarity_matrix):
+#     """
+#     Find the best matching course from the dataset based on the course name.
     
-    Uses fuzzy matching to identify the closest course name in the dataset.
-    Returns the matched course name and its similarity score.
-    """
-    result = process.extractOne(course_name, data['Course Name'])  # Find the best match
-    if result:
-        matched_course, match_score, _ = result  # Unpack matched course and score
-        return matched_course, match_score
-    return None, None  # Return None if no match is found
+#     Uses fuzzy matching to identify the closest course name in the dataset.
+#     Returns the matched course name and its similarity score.
+#     """
+#     result = process.extractOne(course_name, data['Course Name'])  # Find the best match
+#     if result:
+#         matched_course, match_score, _ = result  # Unpack matched course and score
+#         return matched_course, match_score
+#     return None, None  # Return None if no match is found
 
 def get_recommendations(course_name, data, similarity_matrix, top_n=3, threshold=90, rating_weight=0.05):
     """
@@ -80,14 +80,14 @@ def get_recommendations(course_name, data, similarity_matrix, top_n=3, threshold
     - threshold: Minimum similarity score to consider a match.
     - rating_weight: Weight to apply to course ratings in the final recommendation score.
     """
-    matched_course, match_score = get_similarity(course_name, data, similarity_matrix)
+    # matched_course, match_score = get_similarity(course_name, data, similarity_matrix)
     
-    # If no match is found or match score is below the threshold, return no recommendations
-    if matched_course is None or match_score < threshold:
-        return []
+    # # If no match is found or match score is below the threshold, return no recommendations
+    # if matched_course is None or match_score < threshold:
+    #     return []
 
-    matched_courses = data[data['Course Name'] == matched_course]  # Filter matching course(s)
-    course_idx = matched_courses.index[0]  # Get the index of the matched course
+    course_name = data[data['Course Name'] == course_name]  # Filter matching course(s)
+    course_idx = course_name.index[0]  # Get the index of the matched course
     similarity_scores = list(enumerate(similarity_matrix[course_idx]))  # Get similarity scores for all courses
     
     recommendations = []

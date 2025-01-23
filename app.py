@@ -36,9 +36,7 @@ def recommend():
     """
     course_name = request.form['course_name']
     
-    # Preprocess the course name and get recommendations
-    preprocessed_course_name = preprocess_name(course_name)
-    recommendations = get_recommendations(preprocessed_course_name, data, similarity_matrix)
+    recommendations = get_recommendations(course_name, data, similarity_matrix)
     
     return render_template('recommendations.html', recommendations=recommendations)
 
