@@ -9,6 +9,16 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # Initialize lemmatizer for text preprocessing
 lemmatizer = WordNetLemmatizer()
 
+# Set the NLTK data path to your local directory
+nltk.data.path.append('nltk-data')  
+
+# Ensure NLTK resources are available
+try:
+    nltk.data.find('corpora/wordnet')
+except LookupError:
+    print("WordNet not found. Downloading...")
+    nltk.download('wordnet')
+    
 def preprocess_name(text):
     """
     Clean and lemmatize course name to prepare it for similarity comparison.
