@@ -20,12 +20,12 @@ def load_data():
         
         # Build paths to the necessary files in the 'models' and 'data' directories
         similarity_matrix_path = os.path.join(current_dir, 'models', 'similarity_matrix.pkl')
-        vectorizer_path = os.path.join(current_dir, 'models', 'tfidf_vectorizer.pkl')
+        # vectorizer_path = os.path.join(current_dir, 'models', 'tfidf_vectorizer.pkl')
         data_path = os.path.join(current_dir, 'data', 'coursera.csv')
         
         # Load the files
         similarity_matrix = pickle.load(open(similarity_matrix_path, 'rb'))
-        vectorizer = pickle.load(open(vectorizer_path, 'rb'))
+        # vectorizer = pickle.load(open(vectorizer_path, 'rb'))
         data = pd.read_csv(data_path, encoding='utf-8')
 
     except (FileNotFoundError, pickle.UnpicklingError, pd.errors.EmptyDataError) as e:
