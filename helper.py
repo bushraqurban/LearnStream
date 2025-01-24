@@ -1,8 +1,5 @@
 import pandas as pd
-# import nltk
 import re
-# from fuzzywuzzy import process
-# from nltk.stem import WordNetLemmatizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
     
