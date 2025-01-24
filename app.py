@@ -27,9 +27,8 @@ def recommend():
     """
     Recommendation page route. Processes the user's input and provides course recommendations.
     
-    This route receives a course name from the form on the home page, preprocesses the 
-    name, and uses it to find similar courses. It then renders the 'recommendations.html' 
-    template with the recommendations.
+    This route receives a course name from the form on the home page and uses it to find similar courses. 
+    It then renders the 'recommendations.html' template with the recommendations.
     
     Returns:
     - Rendered HTML template for the recommendations page with the recommended courses.

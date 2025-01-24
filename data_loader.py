@@ -4,10 +4,10 @@ import pandas as pd
 
 def load_clean_data():
     """
-    Load and cleans the necessary data file and model (similarity matrix and course data).
+    Load and cleans the necessary data file and model (i.e similarity matrix and course data).
     
     This function loads the precomputed similarity matrix and the course data from CSV files.
-    It also handles any potential errors during file loading and logs them for debugging.
+    It handles any potential errors during file loading and logs them for debugging.
     It also ensures that the data does not have duplicates and ascii characters in the data are removed.
     
     Returns:
