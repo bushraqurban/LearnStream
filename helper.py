@@ -40,8 +40,8 @@ def get_recommendations(course_name, data, similarity_matrix, top_n=3, threshold
     - threshold: Minimum similarity score to consider a match.
     - rating_weight: Weight to apply to course ratings in the final recommendation score.
     """
-    course_name = data[data['Course Name'] == course_name]  # Filter matching course(s)
-    course_idx = course_name.index[0]  # Get the index of the matched course
+    course_name = data[data['Course Name'] == course_name]  # Filter data for selected course
+    course_idx = course_name.index[0]  # Get the index of the selected course
     similarity_scores = list(enumerate(similarity_matrix[course_idx]))  # Get similarity scores for all courses
     
     recommendations = []
