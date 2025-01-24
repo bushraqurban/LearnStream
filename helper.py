@@ -1,15 +1,6 @@
 import pandas as pd
 import re
     
-def clean_display_text(text):
-    """
-    Remove unwanted characters for displaying text on the UI.
-    
-    Keeps necessary punctuation and alphanumeric characters while cleaning the string 
-    to prevent any unwanted characters from appearing on the page.
-    """
-    return re.sub(r'[^a-zA-Z0-9\s.,!?;:()&$%\'"^@#=-]', '', text)  # Clean the text
-
 def normalize_rating(rating_str):
     """
     Normalize the course rating to a 0-1 scale.
@@ -49,11 +40,11 @@ def get_recommendations(course_name, data, similarity_matrix, top_n=3, threshold
 
         # Prepare recommendation dictionary with relevant course information
         recommendations.append({
-            "course_name": clean_display_text(course_data['Course Name']),
+            "course_name": course_data['Course Name'],
             "course_url": course_data.get('Course URL', ''),
             "rating": course_data['Course Rating'],
-            "institution": clean_display_text(course_data.get('University', 'Unknown')),
-            "difficulty_level": clean_display_text(course_data.get('Difficulty Level', 'Unknown')),
+            "institution": course_data.get('University', 'Unknown'),
+            "difficulty_level": course_data.get('Difficulty Level', 'Unknown'),
             "similarity": similarity_score,
             "final_score": similarity_score * (1 - rating_weight) + normalized_rating * rating_weight  # Weighted final score
         })

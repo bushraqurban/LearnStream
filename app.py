@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 import os
-from data_loader import load_data
+from data_loader import load_clean_data
 from helper import get_recommendations
 
 
 app = Flask(__name__)
 
 # Load the necessary data on app startup
-data, similarity_matrix, course_names = load_data()
+data, similarity_matrix, course_names = load_clean_data()
 
 @app.route('/')
 def home():

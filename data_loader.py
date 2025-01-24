@@ -2,15 +2,16 @@ import os
 import pickle
 import pandas as pd
 
-def load_data():
+def load_clean_data():
     """
-    Load the necessary data files (similarity matrix, vectorizer, and course data).
+    Load and cleans the necessary data file and model (similarity matrix and course data).
     
-    This function loads the precomputed similarity matrix, TF-IDF vectorizer, and the course data from CSV files.
+    This function loads the precomputed similarity matrix and the course data from CSV files.
     It also handles any potential errors during file loading and logs them for debugging.
+    It also ensures that the data does not have duplicates and ascii characters in the data are removed.
     
     Returns:
-    - data: DataFrame containing course information.
+    - data: Clean DataFrame containing course information.
     - similarity_matrix: Precomputed similarity matrix for courses.
     - course_names: List of course names for use in the recommendation system.
     """
@@ -34,11 +35,14 @@ def load_data():
     # Drop duplicates from the course data based on key columns
     data = data.drop_duplicates(subset=['Course Name', 'University', 'Difficulty Level', 'Course Rating', 'Course URL', 'Course Description'])
     
+    # Function to remove non-ASCII characters
+    def remove_non_ascii(text):
+        return text.encode('ascii', 'ignore').decode('ascii') if isinstance(text, str) else text
+
+    for column in data:
+        data[column] = data[column].apply(remove_non_ascii)
+
     # Extract the list of course names for use in the recommendation system
     course_names = data['Course Name'].tolist()
 
-    # Remove non-ASCII characters
-    course_names = [course.encode('ascii', 'ignore').decode('ascii') for course in course_names]
-
-    
     return data, similarity_matrix, course_names
