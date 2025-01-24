@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import os
 from data_loader import load_data
-from helper import preprocess_name, get_recommendations
+from helper import get_recommendations
 
 
 app = Flask(__name__)
