@@ -1,5 +1,8 @@
+"""
+This module contains the main Flask application for the course recommendation system.
+"""
+
 from flask import Flask, render_template, request
-import os
 from data_loader import load_clean_data
 from helper import get_recommendations
 
@@ -27,16 +30,14 @@ def recommend():
     """
     Recommendation page route. Processes the user's input and provides course recommendations.
     
-    This route receives a course name from the form on the home page and uses it to find similar courses. 
+    This route receives a course name from the form and uses it to find similar courses. 
     It then renders the 'recommendations.html' template with the recommendations.
     
     Returns:
     - Rendered HTML template for the recommendations page with the recommended courses.
     """
     course_name = request.form['course_name']
-    
     recommendations = get_recommendations(course_name, data, similarity_matrix)
-    
     return render_template('recommendations.html', recommendations=recommendations)
 
 if __name__ == '__main__':

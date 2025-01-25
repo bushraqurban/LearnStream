@@ -1,3 +1,7 @@
+"""
+Module to load and clean course data and similarity matrix.
+"""
+
 import os
 import pickle
 import pandas as pd
@@ -8,7 +12,8 @@ def load_clean_data():
     
     This function loads the precomputed similarity matrix and the course data from CSV files.
     It handles any potential errors during file loading and logs them for debugging.
-    It also ensures that the data does not have duplicates and ascii characters in the data are removed.
+    It also ensures that the data does not have duplicates and ascii characters in the data are
+    removed.
     
     Returns:
     - data: Clean DataFrame containing course information.
@@ -18,23 +23,22 @@ def load_clean_data():
     try:
         # Get the absolute path to the current directory (where the script is located)
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        
         # Build paths to the necessary files in the 'models' and 'data' directories
         similarity_matrix_path = os.path.join(current_dir, 'models', 'similarity_matrix.pkl')
         data_path = os.path.join(current_dir, 'data', 'coursera.csv')
-        
         # Load the files
-        similarity_matrix = pickle.load(open(similarity_matrix_path, 'rb'))
+        with open(similarity_matrix_path, 'rb') as f:
+            similarity_matrix = pickle.load(f)
         data = pd.read_csv(data_path, encoding='utf-8')
-
     except (FileNotFoundError, pickle.UnpicklingError, pd.errors.EmptyDataError) as e:
         # Log the error and raise an exception if loading fails
         print(f"Error loading files: {e}")
         raise Exception(f"Error loading files: {e}")
-    
+
     # Drop duplicates from the course data based on key columns
-    data = data.drop_duplicates(subset=['Course Name', 'University', 'Difficulty Level', 'Course Rating', 'Course URL', 'Course Description'])
-    
+    data = data.drop_duplicates(subset=['Course Name', 'University', 'Difficulty Level',
+    'Course Rating', 'Course URL', 'Course Description'])
+
     # Function to remove non-ASCII characters
     def remove_non_ascii(text):
         return text.encode('ascii', 'ignore').decode('ascii') if isinstance(text, str) else text

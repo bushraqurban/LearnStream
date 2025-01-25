@@ -1,6 +1,7 @@
-import pandas as pd
-import re
-    
+"""
+Module for generating course recommendations based on similarity scores.
+"""
+
 def normalize_rating(rating_str):
     """
     Normalize the course rating to a 0-1 scale.
@@ -13,7 +14,8 @@ def normalize_rating(rating_str):
     except ValueError:
         return 0  # Return 0 if the rating is invalid
 
-def get_recommendations(course_name, data, similarity_matrix, top_n=6, threshold=90, rating_weight=0.05):
+def get_recommendations(course_name, data, similarity_matrix, top_n=6,
+                        rating_weight=0.05):
     """
     Get top N course recommendations based on similarity to the given course name.
     
@@ -31,12 +33,12 @@ def get_recommendations(course_name, data, similarity_matrix, top_n=6, threshold
     """
     course_name = data[data['Course Name'] == course_name]  # Filter data for selected course
     course_idx = course_name.index[0]  # Get the index of the selected course
-    similarity_scores = list(enumerate(similarity_matrix[course_idx]))  # Get similarity scores for all courses
-    
+    similarity_scores = list(enumerate(similarity_matrix[course_idx]))  # Get similarity for courses
+
     recommendations = []
     for idx, similarity_score in sorted(similarity_scores, key=lambda x: x[1], reverse=True)[:top_n]:
         course_data = data.iloc[idx]  # Get course data for the current recommendation
-        normalized_rating = normalize_rating(course_data.get('Course Rating', '0'))  # Normalize rating
+        normalized_rating = normalize_rating(course_data.get('Course Rating', '0'))
 
         # Prepare recommendation dictionary with relevant course information
         recommendations.append({
@@ -46,7 +48,7 @@ def get_recommendations(course_name, data, similarity_matrix, top_n=6, threshold
             "institution": course_data.get('University', 'Unknown'),
             "difficulty_level": course_data.get('Difficulty Level', 'Unknown'),
             "similarity": similarity_score,
-            "final_score": similarity_score * (1 - rating_weight) + normalized_rating * rating_weight  # Weighted final score
+            "final_score": similarity_score * (1 - rating_weight) + normalized_rating * rating_weight
         })
 
     # Return sorted recommendations based on the final score
