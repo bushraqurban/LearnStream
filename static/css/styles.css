@@ -46,10 +46,16 @@ nav .container {
     margin: 0 auto;
 }
 
-nav h1 {
+nav .logo {
+    width: 180px;
+    margin-left: 20px;
+}
+
+/* To Create Text Logo */
+/* nav h1 {
     color: #F9E900;
     font-size: 30px;
-}
+} */
 
 nav ul {
     list-style: none;
@@ -198,6 +204,11 @@ form button:hover {
         text-align: center;
     }
 
+    nav .logo {
+        width: 100px; /* Resize logo on smaller screens */
+        margin-bottom: 10px;
+    }
+
     form input {
         width: 80%;
     }
@@ -213,6 +224,11 @@ form button:hover {
 }
 
 @media (max-width: 480px) {
+    nav .logo {
+        width: 90px; /* Further resize on very small screens */
+        align-items: center;
+    }
+
     .recommendations-list {
         flex-direction: column;
         align-items: center;
