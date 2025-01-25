@@ -47,7 +47,7 @@ nav .container {
 }
 
 nav .logo {
-    width: 180px;
+    width: 150px;
     margin-left: 20px;
 }
 
@@ -58,6 +58,11 @@ nav ul {
 
 nav ul li {
     margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;            
 }
 
 /* Form and container styles */
@@ -208,7 +213,7 @@ form button:hover {
 
 @media (max-width: 480px) {
     nav .logo {
-        width: 90px;
+        width: 110px;
         align-items: center;
     }
 
