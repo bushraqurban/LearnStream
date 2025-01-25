@@ -1,8 +1,16 @@
-# 🌐 LearnStream
+<h1 align="center" style="background-color: #2354d1; padding: 0px;">
+    <div style="display: inline-block;">
+        <img alt="LearnStream Logo" width="200px" src="static/images/logo.png">
+    </div>
+</h1>
 
-**Live here:** [**LearnStream**](https://mechanical-oralia-bushra-e3bf072d.koyeb.app/)
+<div align="center">
 
-**Model Training Notebook:** [**Kaggle Notebook**]()
+[![Kaggle](https://img.shields.io/badge/Kaggle-Notebook-orange?style=flat&logo=kaggle&logoColor=white)](https://www.kaggle.com/your-kaggle-profile)
+[![Live Website Status](https://img.shields.io/badge/Live_App-Online-brightgreen)](https://mechanical-oralia-bushra-e3bf072d.koyeb.app/)
+[![Code Quality](https://img.shields.io/scrutinizer/g/bushraqurban/LearnStream.svg)](https://scrutinizer-ci.com/g/bushraqurban/LearnStream)
+
+</div>
 
 
 ![Homepage Screenshot](static/images/screenshot_index.png)
@@ -12,16 +20,16 @@
 *The recommendation page showing course suggestions based on the user input.*
 
 
-## Objective 🎯
+## Objective 
 
-The **LearnStream** app is designed to help users find Coursera courses tailored to their interests and learning goals. Key features include:
+The **LearnStream** website is designed to help users find Coursera courses tailored to their interests and learning goals. Key features include:
 
-- 🏫 **Personalized Course Recommendations**: Based on user input, the app provides course suggestions that match the entered course name.
-- 🖥️ **User-Friendly Interface**: The app offers a simple and intuitive interface that allows users to easily explore courses and get relevant suggestions.
-- 🔄 **Responsive**: The app’s layout and components automatically adjust to the user’s device screen size.
+- **Personalized Course Recommendations**: Based on user input, the website provides course suggestions that match the entered course name.
+- **User-Friendly Interface**: The website offers a simple and intuitive interface that allows users to easily explore courses and get relevant suggestions.
+- **Responsive**: The website’s layout and components automatically adjust to the user’s device screen size.
 
 
-## Setup and Installation 🚀
+## Setup and Installation 
 
 Follow these steps to get your local environment up and running:
 
@@ -64,14 +72,14 @@ python app.py # On Windowns
 After running the application, visit `http://127.0.0.1:5000/` in your browser to view the app.
 
 
-## How It Works ⚙️
+## How It Works 
 
 1.  **Input**: Users can select a course from a dropdown menu, which is dynamically populated with course names.
-2.  **Processing**: Once a course is selected, the app processes the request and uses the backend to find and recommend similar courses.
+2.  **Processing**: Once a course is selected, the website processes the request and uses the backend to find and recommend similar courses.
 3.  **Output**: The app displays recommended courses links along with details like ratings, institutions, and difficulty levels.
 
 
-## Folder Structure 📁
+## Folder Structure 
 
 ```plaintext
 LearnStream/
@@ -97,7 +105,7 @@ LearnStream/
 ```
 
 
-## Technologies Used 🛠️
+## Technologies Used 
 
 -   **Python**: The core programming language for backend logic.
 -   **Flask**: For building the backend web application.
@@ -105,6 +113,6 @@ LearnStream/
 -   **Jinja2**: For rendering dynamic HTML templates.
 
 
-## License 📜
+## License 
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
