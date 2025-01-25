@@ -1,7 +1,5 @@
-<h1 align="center" style="background-color: #2354d1; padding: 0px;">
-    <div style="display: inline-block;">
-        <img alt="LearnStream Logo" width="200px" src="static/images/logo.png">
-    </div>
+<h1 align="center">
+        <img alt="LearnStream Logo" width="200px" src="static/images/logo-icon.png">
 </h1>
 
 <div align="center">
