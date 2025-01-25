@@ -25,10 +25,10 @@
                 {% for recommendation in recommendations %}
                     <div class="course-item">
                         <div class="course-info">
-                            <h3><a href= "{{ recommendation.course_url }}" > {{ recommendation.course_name }} </a></h3>
-                            <p><strong>Rating:</strong> {{ recommendation.rating }} </p>
-                            <p><strong>Offered by:</strong> {{ recommendation.institution }} </p>
-                            <p><strong>Difficluty level:</strong> {{recommendation.difficulty_level}} </p>
+                            <h3><a href="{{ recommendation.course_url }}"> {{ recommendation.course_name }} </a></h3>
+                            <p><strong>Rating:</strong> {{ recommendation.rating }}</p>
+                            <p><strong>Offered by:</strong> {{ recommendation.institution }}</p>
+                            <p><strong>Difficulty level:</strong> {{ recommendation.difficulty_level }}</p>
                         </div>
                     </div>
                 {% endfor %}

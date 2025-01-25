@@ -13,7 +13,7 @@ def normalize_rating(rating_str):
     except ValueError:
         return 0  # Return 0 if the rating is invalid
 
-def get_recommendations(course_name, data, similarity_matrix, top_n=3, threshold=90, rating_weight=0.05):
+def get_recommendations(course_name, data, similarity_matrix, top_n=6, threshold=90, rating_weight=0.05):
     """
     Get top N course recommendations based on similarity to the given course name.
     

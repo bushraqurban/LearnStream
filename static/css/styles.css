@@ -126,7 +126,7 @@ form button:hover {
 /* Recommendations list */
 .recommendations-list {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     overflow-x: auto;
