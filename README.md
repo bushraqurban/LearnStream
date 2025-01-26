@@ -4,7 +4,7 @@
 
 <div align="center">
 
-[![Kaggle](https://img.shields.io/badge/Kaggle-Notebook-orange?style=flat&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/bushraqurban/coursera-course-recommender-system?scriptVersionId=219253274)
+[![Kaggle](https://img.shields.io/badge/Kaggle-Notebook-orange?style=flat&logo=kaggle&logoColor=white)](https://www.kaggle.com/code/bushraqurban/coursera-course-recommender-system?scriptVersionId=219326674)
 [![Live Website Status](https://img.shields.io/badge/Live_App-Online-brightgreen)](https://mechanical-oralia-bushra-e3bf072d.koyeb.app/)
 [![Code Quality](https://img.shields.io/scrutinizer/g/bushraqurban/LearnStream.svg)](https://scrutinizer-ci.com/g/bushraqurban/LearnStream)
 
